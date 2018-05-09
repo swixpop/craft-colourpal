@@ -1,0 +1,70 @@
+/**
+ * Colour Pal plugin for Craft CMS
+ *
+ * ColourPalField Field CSS
+ *
+ * @author    Isaac Gray
+ * @copyright Copyright (c) 2018 Isaac Gray
+ * @link      https://www.vaersaagod.no
+ * @package   ColourPal
+ * @since     0.9.0
+ */
+
+.ColourPal__field .selectize.select .selectize-control, .ColourPal__field .select:not(.selectize) {
+    width: 50%;
+    min-width: 275px;
+}
+
+.ColourPal__field .select:not(.selectize) select {
+    width: 100%;
+}
+
+.ColourPal__option.active {
+    background: 0 !important;
+}
+
+.ColourPal__option {
+    position: relative;
+    padding-left: 40px !important;
+}
+
+.ColourPal__item {
+    position: relative;
+    padding-left: 30px !important;
+}
+
+.ColourPal__swatch {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 9px;
+    left: 10px;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.ColourPal__item .ColourPal__swatch {
+    top: -1px;
+    left: 0px;
+}
+
+.ColourPal__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+
+.ColourPal__option.active .ColourPal__bg {
+    display: block;
+}
+
+.ColourPal__text {
+    position: relative;
+    z-index: 3;
+}
+

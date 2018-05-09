@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Colour Pal plugin for Craft CMS 3.x
+ *
+ * ColourPalField Field Input
+ *
+ * @author    Isaac Gray
+ * @copyright Copyright (c) 2018 Isaac Gray
+ * @link      https://www.vaersaagod.no
+ * @package   ColourPal
+ * @since     0.9.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+<div class="ColourPal__field">
+{{ forms.selectField({
+    id: id,
+    name: name,
+    options: fieldOptions,
+    value: value,
+}) }}
+</div>
+
+

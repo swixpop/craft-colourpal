@@ -1,0 +1,40 @@
+{
+    "name": "swixpop/colour-pal",
+    "description": "A friendly palette picker field with predefined colour palette configuration.",
+    "type": "craft-plugin",
+    "version": "0.9.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "colour pal"
+    ],
+    "support": {
+        "docs": "https://github.com/swixpop/colour-pal/blob/master/README.md",
+        "issues": "https://github.com/swixpop/colour-pal/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Isaac Gray",
+            "homepage": "https://www.vaersaagod.no"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "swixpop\\colourpal\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Colour Pal",
+        "handle": "colour-pal",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/swixpop/colour-pal/master/CHANGELOG.md",
+        "class": "swixpop\\colourpal\\ColourPal"
+    }
+}

@@ -1,0 +1,29 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Colour Pal plugin for Craft CMS
+ *
+ * ColourPalField Field Settings
+ *
+ * @author    Isaac Gray
+ * @copyright Copyright (c) 2018 Isaac Gray
+ * @link      https://www.vaersaagod.no
+ * @package   ColourPal
+ * @since     0.9.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{#{% do view.registerAssetBundle("swixpop\\colourpal\\assetbundles\\colourpal\\ColourPalAsset") %}#}
+
+{{ forms.selectField({
+    label: "Palette" | t('colour-pal'),
+    warning: (not field.isNew() and not field.hasErrors('type') ? "Changing this may result in data loss." | t('site')),
+    id: 'palette',
+    name: 'palette',
+    options: fieldOptions,
+    value: field['palette'],
+    errors: field.getErrors('palette') ?? null
+}) }}
+
