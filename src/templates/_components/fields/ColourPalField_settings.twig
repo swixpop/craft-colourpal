@@ -27,3 +27,17 @@
     errors: field.getErrors('palette') ?? null
 }) }}
 
+
+{{ forms.lightswitchField({
+    label: "Allow blank" | t('colour-pal'),
+    id: 'allowBlank',
+    name: 'allowBlank',
+    on: allowBlank
+}) }}
+
+{{ forms.lightswitchField({
+    label: "Sort by name" | t('colour-pal'),
+    id: 'sortByName',
+    name: 'sortByName',
+    on: sortByName
+}) }}

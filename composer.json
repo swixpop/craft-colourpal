@@ -2,7 +2,7 @@
     "name": "swixpop/colour-pal",
     "description": "A friendly palette picker field with predefined colour palette configuration.",
     "type": "craft-plugin",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "keywords": [
         "craft",
         "cms",

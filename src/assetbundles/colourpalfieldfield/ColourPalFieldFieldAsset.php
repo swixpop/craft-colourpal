@@ -13,7 +13,7 @@ namespace swixpop\colourpal\assetbundles\colourpalfieldfield;
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
-use craft\web\assets\selectize\SelectizeAsset;
+//use craft\web\assets\selectize\SelectizeAsset;
 
 /**
  * ColourPalFieldFieldAsset AssetBundle
@@ -44,22 +44,22 @@ class ColourPalFieldFieldAsset extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = "@swixpop/colourpal/assetbundles/colourpalfieldfield/dist";
+        $this->sourcePath = "@swixpop/colourpal/assetbundles/colourpalfieldfield/build";
 
         // define the dependencies
         $this->depends = [
             CpAsset::class,
-            SelectizeAsset::class,
+//            SelectizeAsset::class,
         ];
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'js/ColourPalField.js',
+            'ColourPalField.js',
         ];
 
         $this->css = [
-            'css/ColourPalField.css',
+            'ColourPalField.css',
         ];
 
         parent::init();

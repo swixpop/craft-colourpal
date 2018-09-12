@@ -14,13 +14,28 @@
 #}
 
 {% import "_includes/forms" as forms %}
+
 <div class="ColourPal__field">
-{{ forms.selectField({
-    id: id,
-    name: name,
-    options: fieldOptions,
-    value: value,
-}) }}
+    <select class="ColourPal__select">
+        {% for option in fieldOptions %}
+            {% if option.placeholder ?? null %}
+                <option placeholder>{{  option.label }}</option>
+            {% else %}
+                <option value='{{ option.value }}' {% if value == option.value %}selected{% endif %}>{{ option.label }}</option>
+            {% endif %}
+
+        {% endfor %}
+    </select>
+
+    <div class="ColourPal__select-default">
+        <div class="select">
+            <select id="{{ id  }}" name="{{ name }}">
+                {% for option in fieldOptions %}
+                    <option value='{{ option.value }}' {% if value == option.value %}selected{% endif %} {% if option.placeholder ?? null %}placeholder{% endif %}>{{ option.label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
 </div>
 
 

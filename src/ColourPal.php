@@ -53,7 +53,7 @@ class ColourPal extends Plugin
     /**
      * @var string
      */
-    public $schemaVersion = '0.9.0';
+    public $schemaVersion = '0.9.1';
 
     // Public Methods
     // =========================================================================

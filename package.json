@@ -1,0 +1,20 @@
+{
+    "name": "craft-colourpal",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/swixpop/craft-colourpal.git",
+    "author": "Isaac Gray <isaac@vaersaagod.no>",
+    "license": "MIT",
+    "scripts": {
+        "build": "parcel build ./src/assetbundles/colourpalfieldfield//src/ColourPalField.js -d ./src/assetbundles/colourpalfieldfield/build -o ColourPalField",
+        "start": "parcel watch ./src/assetbundles/colourpalfieldfield//src/ColourPalField.js -d ./src/assetbundles/colourpalfieldfield/build -o ColourPalField"
+    },
+    "dependencies": {
+        "choices.js": "^3.0.4",
+        "parcel-bundler": "^1.9.7"
+    },
+    "devDependencies": {
+        "cssnano": "^4.1.0",
+        "node-sass": "^4.9.3"
+    }
+}

@@ -1,0 +1,122 @@
+/**
+ * Colour Pal plugin for Craft CMS
+ *
+ * ColourPalField Field CSS
+ *
+ * @author    Isaac Gray
+ * @copyright Copyright (c) 2018 Isaac Gray
+ * @link      https://www.vaersaagod.no
+ * @package   ColourPal
+ * @since     0.9.0
+ */
+
+
+.ColourPal__option.active {
+    background: 0 !important;
+}
+
+
+.ColourPal__item .ColourPal__swatch {
+    top: -1px;
+    left: 0px;
+}
+
+
+.ColourPal__text {
+    position: relative;
+    z-index: 3;
+}
+
+
+.ColourPal {
+    &__list {
+        padding-left: 2.5px !important;
+    }
+    &__item {
+        position: relative;
+        padding-left: 30px !important;
+    }
+
+    &__choice {
+        background: 0 !important;
+        position: relative;
+        padding-left: 40px !important;
+    }
+
+    &__swatch {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 9px;
+        left: 10px;
+        border-radius: 3px;
+        z-index: 2;
+    }
+
+    &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: none;
+
+        .is-highlighted & {
+            display: block;
+        }
+    }
+
+    &__field {
+        position: relative;
+        z-index: 99;
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .choices {
+            margin-bottom: 0;
+        }
+
+        .choices__list--dropdown {
+            z-index: 2;
+            
+            .hud & {
+                position: relative;
+            }
+
+            .choices__list {
+                .hud & {
+                    max-height: 200px;
+                }
+            }
+            .choices__placeholder {
+                display: none;
+            }
+        }
+
+        .choices[data-type*="select-one"] .choices__button {
+            margin-right: 10px;
+        }
+    }
+
+
+    
+    &__select {
+        display: none;
+        
+        .choices & {
+            display: block;
+        }
+    }
+
+    &__select-default {
+        .choices + & {
+            display: none;
+        }
+    }
+
+
+}

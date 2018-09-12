@@ -42,7 +42,14 @@ class ColourPalField extends Field
     /**
      * @var string
      */
+
+
     public $palette = 'default';
+    public $allowBlank;
+    public $sortByName;
+
+
+
 
     // Static Methods
     // =========================================================================
@@ -107,6 +114,8 @@ class ColourPalField extends Field
             ];
         }
 
+
+
         return new ColourPalModel($attr);
     }
 
@@ -131,9 +140,9 @@ class ColourPalField extends Field
     {
         $palettes = ColourPal::getInstance()->getSettings()->palettes;
 
+        $defaultSortByName = ColourPal::getInstance()->getSettings()->defaultSortByName;
+        $defaultAllowBlank = ColourPal::getInstance()->getSettings()->defaultAllowBlank;
         $fieldOptions = [];
-
-
 
         foreach ($palettes as $key => $value) {
             $fieldOptions[] = [
@@ -142,13 +151,16 @@ class ColourPalField extends Field
             ];
         }
 
+//        Craft::dd($this->sortByName);
 
         // Render the settings template
         return Craft::$app->getView()->renderTemplate(
             'colour-pal/_components/fields/ColourPalField_settings',
             [
                 'field' => $this,
-                'fieldOptions' => $fieldOptions
+                'fieldOptions' => $fieldOptions,
+                'allowBlank' => (bool)($this->allowBlank ?? $defaultAllowBlank),
+                'sortByName' => (bool)($this->sortByName ?? $defaultSortByName),
             ]
         );
     }
@@ -173,10 +185,24 @@ class ColourPalField extends Field
         $namespacedId = Craft::$app->getView()->namespaceInputId($id);
 
         $palette = $this->getSettings()['palette'] ? $this->getSettings()['palette'] : ColourPal::getInstance()->getSettings()->defaultPalette;
+        $allowBlank = $this->getSettings()['allowBlank'] ?? ColourPal::getInstance()->getSettings()->defaultAllowBlank;
+        $sortByName = $this->getSettings()['$sortByName'] ?? ColourPal::getInstance()->getSettings()->defaultSortByName;
 
         $colours = ColourPal::getInstance()->getSettings()->palettes[$palette]['colours'];
 
+
         $fieldOptions = [];
+
+        if ((bool)$allowBlank) {
+            $fieldOptions[] = [
+                'label' => 'Select a colour...',
+                'value' => Json::encode([
+                    'colourName' => '',
+                    'cssValue' => ''
+                ]),
+                'placeholder' => true
+            ];
+        }
 
         foreach ($colours as $color) {
             $currentValue = [
@@ -193,8 +219,10 @@ class ColourPalField extends Field
         // Variables to pass down to our field JavaScript to let it namespace properly
         $jsonVars = [
             'id' => $id,
+            'allowBlank' => $allowBlank,
             'name' => $this->handle,
             'namespace' => $namespacedId,
+            'sortByName' => $sortByName,
             'prefix' => Craft::$app->getView()->namespaceInputId(''),
             ];
         $jsonVars = Json::encode($jsonVars);
@@ -210,6 +238,7 @@ class ColourPalField extends Field
                 'id' => $id,
                 'fieldOptions' => $fieldOptions,
                 'namespacedId' => $namespacedId,
+                'allowBlank' => $allowBlank
             ]
         );
     }

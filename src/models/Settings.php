@@ -42,6 +42,8 @@ class Settings extends Model
     public $someAttribute = 'Some Default';
 
     public $defaultPalette = 'default';
+    public $defaultAllowBlank = false;
+    public $defaultSortByName = false;
     public $palettes = [
         'default' => [
             'name' => 'Default',
